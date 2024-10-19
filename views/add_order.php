@@ -8,7 +8,7 @@
 <body>
     <h1>Add Order</h1>
     <form method="POST" action="">
-        <input type="text" name="customer_id" placeholder="Customer ID" required>
+        <!-- <input type="text" name="customer_id" placeholder="Customer ID" required> -->
         <input type="text" name="customer_name" placeholder="Customer Name" required>
         <input type="email" name="customer_email" placeholder="Customer Email" required>
         <input type="text" name="status" placeholder="Status" required>

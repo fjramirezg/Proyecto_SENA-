@@ -8,6 +8,8 @@
 <body>
     <h1>List of Orders</h1>
     <a href="index.php?action=add">Add New Order</a>
+    <a href="logout.php" style="float:right;">Logout</a>
+
     <table border="1">
         <tr>
             <th>Order ID</th>
