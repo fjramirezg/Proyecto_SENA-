@@ -6,7 +6,7 @@
     <title>Login</title>
 
     <!-- Enlace a la hoja de estilos CSS para el formulario de inicio de sesión -->
-    <link rel="stylesheet" href="../Proyecto_/css/styles_login.css">
+    <link rel="stylesheet" href="../css/styles_login.css">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
     <?php endif; ?>
 
     <!-- Formulario de inicio de sesión -->
-    <form method="POST" action="login.php">
+    <form method="POST" action="index.php?action=login">
         <!-- Campo para ingresar el correo electrónico, requerido para el envío del formulario -->
         <input type="email" name="email" placeholder="Email" required>
 
