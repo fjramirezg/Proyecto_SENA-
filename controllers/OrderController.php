@@ -92,4 +92,3 @@ class OrderController
         include 'views/list_orders.php';
     }
 }
-?>;

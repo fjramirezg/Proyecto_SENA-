@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
@@ -26,7 +30,7 @@
 
     <div class="menu-content">
       <ul class="menu-items">
-        <div class="menu-title"><?php echo $_SESSION['usuario'] ?></div>
+      <div class="menu-title"><?php echo $_SESSION['user_name']; ?></div>
 
         <li class="item">
           <div class="submenu-item">
@@ -182,7 +186,7 @@
             <div class="card-body">
               <h5 class="card-title">Stock Bajo</h5>
               <ul class="list-group">
-                <?php foreach ($resultBajoStocklistData as $productoBajoList): ?>
+                <?php foreach ($data['resultBajoStocklistData'] as $productoBajoList): ?>
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                     <?php echo htmlspecialchars($productoBajoList['Nombre']); ?>
                     <span class="badge bg-danger rounded-pill"><?php echo htmlspecialchars($productoBajoList['Stock_Disponible']); ?></span>

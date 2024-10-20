@@ -73,4 +73,3 @@ class User
         return $stmt->execute(['id' => $id]);
     }
 }
-?>;

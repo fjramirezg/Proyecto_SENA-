@@ -25,4 +25,4 @@ class HomeController {
         include 'views/home.php'; // Asegúrate de que la ruta es correcta
     }
 }
-?>
+

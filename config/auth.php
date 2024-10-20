@@ -19,4 +19,4 @@ function requireLogin()
         exit; // Asegúrate de incluir esto para evitar la ejecución del resto del script
     }
 }
-?>;
+?>
