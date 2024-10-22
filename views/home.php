@@ -44,7 +44,7 @@ session_start();
             </div>
             <li class="item"><a href="#">Inventario</a></li>
             <li class="item"><a href="#">Facturación</a></li>
-            <li class="item"><a href="#">Ventas</a></li>
+            <li class="item"><a href="index.php?action=list">Ventas</a></li>
           </ul>
         </li>
 
