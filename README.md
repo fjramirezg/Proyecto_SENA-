@@ -78,6 +78,3 @@ Las contribuciones son bienvenidas. Para contribuir, por favor sigue estos pasos
 
 Este proyecto está licenciado bajo la [MIT License](LICENSE).
 
----
-
-Este es un ejemplo base que puedes personalizar según las características y detalles específicos de tu proyecto. ¿Te gustaría agregar algo más?
