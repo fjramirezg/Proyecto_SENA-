@@ -1,7 +1,3 @@
-Aquí tienes un ejemplo de un archivo `README.md` para tu proyecto de inventario de papelería "Benetton":
-
----
-
 # Inventario Papelería Benetton
 
 ## Descripción
