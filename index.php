@@ -2,61 +2,74 @@
 // Se incluye el archivo de configuración de la base de datos
 require_once 'config/database.php';
 
-// Se incluye el controlador de órdenes que manejará las operaciones relacionadas con pedidos
+// Se incluyen los controladores necesarios
 require_once 'controllers/OrderController.php';
-
-// Se incluye el controlador de usuarios para manejar las operaciones relacionadas con los usuarios
 require_once 'controllers/UserController.php';
-
-// Se incluye el controlador de la página principal
 require_once 'controllers/HomeController.php';
+require_once 'controllers/SupplierController.php'; // Controlador de proveedores
 
-// Se crea una nueva instancia del controlador de órdenes, pasando la conexión a la base de datos como parámetro
-$controller = new OrderController($pdo);
-
-// Se crea una nueva instancia del controlador de usuarios, también pasando la conexión a la base de datos
+// Se crean instancias de los controladores, pasando la conexión a la base de datos
+$orderController = new OrderController($pdo);
 $userController = new UserController($pdo);
-
-// Se crea una nueva instancia del controlador de la página principal
 $homeController = new HomeController($pdo);
+$supplierController = new SupplierController($pdo); // Instancia para proveedores
 
-// Se determina la acción a realizar, tomando el valor del parámetro 'action' en la URL o estableciendo 'login' como predeterminado
+// Se determina la acción a realizar
 $action = isset($_GET['action']) ? $_GET['action'] : 'login';
 
 // Se utiliza un switch para manejar diferentes acciones basadas en el valor de $action
 switch ($action) {
     case 'add':
-        // Llama al método add del controlador de órdenes para agregar un nuevo pedido
-        $controller->add();
+        // Llama al método add del controlador de órdenes
+        $orderController->add();
         break;
     case 'edit':
-        // Obtiene el ID del pedido a editar desde los parámetros de la URL y llama al método edit
+        // Obtiene el ID del pedido a editar
         $id = $_GET['id'];
-        $controller->edit($id);
+        $orderController->edit($id);
         break;
     case 'delete':
-        // Obtiene el ID del pedido a eliminar desde los parámetros de la URL y llama al método delete
+        // Obtiene el ID del pedido a eliminar
         $id = $_GET['id'];
-        $controller->delete($id);
+        $orderController->delete($id);
         break;
     case 'list':
-        // Llama al método list del controlador de órdenes para mostrar todos los pedidos
-        $controller->list();
+        // Llama al método list del controlador de órdenes
+        $orderController->list();
         break;
     case 'login':
-        // Llama al método login del controlador de usuarios para iniciar sesión
+        // Llama al método login del controlador de usuarios
         $userController->login();
         break;
     case 'logout':
-        // Llama al método logout del controlador de usuarios para cerrar sesión
+        // Llama al método logout del controlador de usuarios
         $userController->logout();
         break;
     case 'home':
         // Llama al método index del controlador de la página principal
         $homeController->index();
         break;
+    case 'add_supplier':
+        // Llama al método add del controlador de proveedores
+        $supplierController->add();
+        break;
+    case 'edit_supplier':
+        // Asegúrate de que la acción esté bien definida en los enlaces
+        // Obtiene el ID del proveedor a editar
+        $id = $_GET['id'];
+        $supplierController->edit($id); // Llama al método de edición de proveedores
+        break;
+    case 'delete_supplier':
+        // Obtiene el ID del proveedor a eliminar
+        $id = $_GET['id'];
+        $supplierController->delete($id);
+        break;
+    case 'list_suppliers':
+        // Llama al método list del controlador de proveedores
+        $supplierController->list();
+        break;
     default:
-        // Puedes redirigir a una página de error o la página de login por defecto
+        // Redirige a la página de login por defecto
         $userController->login();
         break;
 }

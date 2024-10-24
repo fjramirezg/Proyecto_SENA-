@@ -46,6 +46,7 @@ session_start();
             <li class="item"><a href="#">Inventario</a></li>
             <li class="item"><a href="#">Facturación</a></li>
             <li class="item"><a href="index.php?action=list">Ventas</a></li>
+            <li class="item"><a href="index.php?action=list_suppliers">Proveedores</a></li>
           </ul>
         </li>
 
