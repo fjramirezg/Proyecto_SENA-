@@ -3,11 +3,19 @@
 require_once 'config/database.php';
 
 // Se incluyen los controladores necesarios
+<<<<<<< HEAD
 require_once 'controllers/OrdenesCon/OrderController.php';
 require_once  'controllers/LoginCon/UserController.php';
 require_once  'controllers/Home/HomeController.php';
 require_once  'controllers/ProveedoresCon/SupplierController.php';
 require_once  'controllers/ProductosCon/ProductController.php';
+=======
+require_once 'controllers/OrderController.php';
+require_once 'controllers/UserController.php';
+require_once 'controllers/HomeController.php';
+require_once 'controllers/SupplierController.php';
+require_once 'controllers/ProductController.php';
+>>>>>>> 724832182ceef1441e94d947ee052c27145c71d4
 
 // Se crean instancias de los controladores, pasando la conexión a la base de datos
 $orderController = new OrderController($pdo);
