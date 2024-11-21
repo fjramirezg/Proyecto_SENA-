@@ -45,7 +45,7 @@ class UserController
     {
         session_start(); // Inicia la sesión
         session_destroy(); // Destruye la sesión actual
-        header('Location: index.php?action=login'); // Redirige a la página de inicio de sesión
+        header('Location: index.php?action=home'); // Redirige a la página de inicio de sesión
     }
 
     // Método para mostrar la página principal del usuario después del inicio de sesión

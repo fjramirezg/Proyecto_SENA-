@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,7 +11,7 @@
     <title>List Suppliers</title>
 
     <!-- Estilos CSS -->
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../../Assets/css/styles.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Fontawesome CDN Link -->
@@ -21,62 +26,66 @@
     </style>
 </head>
 
-<body class="container">
-    <!-- Encabezado principal de la página -->
-    <h1>Lista de proveedores</h1>
+<body>
 
-    <!-- Enlace para agregar un nuevo proveedor -->
-    <a href="index.php?action=add_supplier" class="btn btn-primary mb-3">
-        <i class="fas fa-plus"></i> Añadir proveedor
-    </a>
+    <?php include(__DIR__ . '/../includ/sidebar.php'); ?>
+    <?php include(__DIR__ . '/../includ/navbar.php'); ?>
 
-    <!-- Enlace para cerrar sesión, alineado a la derecha -->
-    <a href="logout.php" class="btn btn-danger mb-3 float-right">
-        <i class="fas fa-sign-out-alt"></i> Logout
-    </a>
+    <div class="main">
+        <div class="container mt-4">
+            <!-- Encabezado principal de la página -->
+            <h1>Lista de proveedores</h1>
 
-    <!-- Tabla para mostrar la lista de proveedores -->
-    <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
-            <tr>
-                <!-- Encabezados de las columnas de la tabla -->
-                <th>ID Proveedor</th>
-                <th>Nombre</th>
-                <th>Producto</th>
-                <th>Telefono</th>
-                <th>Email</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Se itera sobre cada proveedor en el array $suppliers para mostrar sus detalles -->
-            <?php foreach ($suppliers as $supplier): ?>
-                <tr>
-                    <!-- Muestra el ID del proveedor -->
-                    <td><?= $supplier['ID_Proveedor'] ?></td>
-                    <!-- Muestra el nombre del proveedor -->
-                    <td><?= $supplier['Nombre'] ?></td>
-                    <!-- Muestra el producto que ofrece -->
-                    <td><?= $supplier['Producto'] ?></td>
-                    <!-- Muestra el teléfono del proveedor -->
-                    <td><?= $supplier['Telefono'] ?></td>
-                    <!-- Muestra el correo electrónico del proveedor -->
-                    <td><?= $supplier['Email'] ?></td>
-                    <td>
-                        <!-- Enlace para editar el proveedor, pasando el ID como parámetro -->
-                        <a href="index.php?action=edit_supplier&id=<?= $supplier['ID_Proveedor'] ?>" class="btn btn-info">
-                            <i class="fas fa-edit"></i> Editar
-                        </a>
-                        <!-- Enlace para eliminar el proveedor, con confirmación antes de proceder -->
-                        <a href="index.php?action=delete_supplier&id=<?= $supplier['ID_Proveedor'] ?>"
-                            onclick="return confirm('Are you sure you want to delete this supplier?');" class="btn btn-danger">
-                            <i class="fas fa-trash-alt"></i> Eliminar
-                        </a>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+            <!-- Enlace para agregar un nuevo proveedor -->
+            <a href="index.php?action=add_supplier" class="btn btn-primary mb-3">
+                <i class="fas fa-plus"></i> Añadir proveedor
+            </a>
+
+            <!-- Tabla para mostrar la lista de proveedores -->
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <!-- Encabezados de las columnas de la tabla -->
+                        <th>ID Proveedor</th>
+                        <th>Nombre</th>
+                        <th>Producto</th>
+                        <th>Telefono</th>
+                        <th>Email</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Se itera sobre cada proveedor en el array $suppliers para mostrar sus detalles -->
+                    <?php foreach ($suppliers as $supplier): ?>
+                        <tr>
+                            <!-- Muestra el ID del proveedor -->
+                            <td><?= $supplier['ID_Proveedor'] ?></td>
+                            <!-- Muestra el nombre del proveedor -->
+                            <td><?= $supplier['Nombre'] ?></td>
+                            <!-- Muestra el producto que ofrece -->
+                            <td><?= $supplier['Producto'] ?></td>
+                            <!-- Muestra el teléfono del proveedor -->
+                            <td><?= $supplier['Telefono'] ?></td>
+                            <!-- Muestra el correo electrónico del proveedor -->
+                            <td><?= $supplier['Email'] ?></td>
+                            <td>
+                                <!-- Enlace para editar el proveedor, pasando el ID como parámetro -->
+                                <a href="index.php?action=edit_supplier&id=<?= $supplier['ID_Proveedor'] ?>" class="btn btn-info">
+                                    <i class="fas fa-edit"></i> Editar
+                                </a>
+                                <!-- Enlace para eliminar el proveedor, con confirmación antes de proceder -->
+                                <a href="index.php?action=delete_supplier&id=<?= $supplier['ID_Proveedor'] ?>"
+                                    onclick="return confirm('Are you sure you want to delete this supplier?');" class="btn btn-danger">
+                                    <i class="fas fa-trash-alt"></i> Eliminar
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
 
     <!-- Scripts de Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -85,6 +94,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-vjEe10nKc4Jw6Ppbji36fM1B96smX4edYo2LMRZGgOHgsNftj3KN1Svax0y8nbTz" crossorigin="anonymous">
     </script>
+    <script src="../../Assets/js/script.js"></script>
 </body>
 
 </html>

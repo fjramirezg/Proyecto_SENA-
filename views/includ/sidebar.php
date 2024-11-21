@@ -5,6 +5,7 @@
         <ul class="menu-items">
             <div class="menu-title"><?php echo $_SESSION['user_name']; ?></div>
             <li class="item">
+            <li class="item"><a href="index.php?action=home">Home</a></li>
                 <div class="submenu-item">
                     <span class="bi bi-house-gear"> Opciones</span>
                     <i class="fa-solid fa-chevron-right"></i>
